@@ -11,7 +11,7 @@ console.log("Hello World!");
 
 async function loadData() {
 	try {
-		const requestURL = "https://github.com/Ted-Landauer/randomSpellSelector/blob/main/TestSpells.json"
+		const requestURL = "https://github.com/Ted-Landauer/randomSpellSelector/blob/main/TestSpells.json";
 		const request = new Request(requestURL);
 		
 		const response = await fetch(request);
@@ -23,7 +23,7 @@ async function loadData() {
 		
 		console.log(spells);
 	} catch (error) {
-		console.error("Error:", error)
+		console.error(error.message);
 	}
 }
 loadData();
