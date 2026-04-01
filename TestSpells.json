@@ -1,0 +1,153 @@
+{
+	"items": [
+		{
+			"h": "candle's%20insight_dms"
+		},
+		{
+			"h": "alarm_phb"
+		},
+		{
+			"h": "chromatic%20orb_phb"
+		},
+		{
+			"h": "detect%20magic_phb"
+		},
+		{
+			"h": "find%20familiar_phb"
+		},
+		{
+			"h": "identify_phb"
+		},
+		{
+			"h": "mage%20armor_phb"
+		},
+		{
+			"h": "shield_phb"
+		},
+		{
+			"h": "detect%20thoughts_phb"
+		},
+		{
+			"h": "enlarge%2freduce_phb"
+		},
+		{
+			"h": "hold%20person_phb"
+		},
+		{
+			"h": "invisibility_phb"
+		},
+		{
+			"h": "locate%20object_phb"
+		},
+		{
+			"h": "mind%20spike_xge"
+		},
+		{
+			"h": "mirror%20image_phb"
+		},
+		{
+			"h": "scorching%20ray_phb"
+		},
+		{
+			"h": "animate%20dead_phb"
+		},
+		{
+			"h": "counterspell_phb"
+		},
+		{
+			"h": "dispel%20magic_phb"
+		},
+		{
+			"h": "fireball_phb"
+		},
+		{
+			"h": "leomund's%20tiny%20hut_phb"
+		},
+		{
+			"h": "lightning%20bolt_phb"
+		},
+		{
+			"h": "sending_phb"
+		},
+		{
+			"h": "message_phb"
+		},
+		{
+			"h": "shape%20water_xge"
+		},
+		{
+			"h": "polymorph_phb"
+		},
+		{
+			"h": "deep%20focus_dms"
+		},
+		{
+			"h": "mordenkainen's%20private%20sanctum_phb"
+		},
+		{
+			"h": "wall%20of%20force_phb"
+		},
+		{
+			"h": "fabricate_phb"
+		},
+		{
+			"h": "misty%20step_phb"
+		},
+		{
+			"h": "magic%20missile_phb"
+		},
+		{
+			"h": "legend%20lore_phb"
+		},
+		{
+			"h": "see%20invisibility_phb"
+		},
+		{
+			"h": "contingency_phb"
+		},
+		{
+			"h": "body%20clock_elminsters%20guide%20to%20magic"
+		},
+		{
+			"h": "teleportation%20circle_phb"
+		},
+		{
+			"h": "seeming_phb"
+		},
+		{
+			"h": "expeditious%20retreat_phb"
+		},
+		{
+			"h": "remove%20curse_phb"
+		},
+		{
+			"h": "threshold%20slip_toh"
+		},
+		{
+			"h": "teleport_phb"
+		},
+		{
+			"h": "plane%20shift_phb"
+		},
+		{
+			"h": "mordenkainen's%20magnificent%20mansion_phb"
+		},
+		{
+			"h": "dream%20of%20the%20blue%20veil_tce"
+		},
+		{
+			"h": "dimension%20door_phb"
+		},
+		{
+			"h": "telekinetic%20trip_dms"
+		}
+	],
+	"sources": [
+		"DMS",
+		"PHB",
+		"XGE",
+		"Elminsters Guide to Magic",
+		"ToH",
+		"TCE"
+	]
+}
