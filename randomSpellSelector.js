@@ -10,21 +10,17 @@ console.log("Hello World!");
 
 
 async function loadData() {
-	try {
+	
 		const requestURL = "https://github.com/Ted-Landauer/randomSpellSelector/blob/main/TestSpells.json";
 		const request = new Request(requestURL);
 		
 		const response = await fetch(request);
-		if (!response.ok) {
-			throw new Error("network response was bad");
-		}
+		
 		
 		const spells = await response.json();
 		
 		console.log(spells);
-	} catch (error) {
-		console.error(error.message);
-	}
+	
 }
 loadData();
 
