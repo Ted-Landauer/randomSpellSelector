@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang ="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Random Spell Selector</title>
+	<link href="index.css" rel="stylesheet">
+</head>
+<body>
+	<div class="input">
+		<header>
+			<h1>Upload Spell List</h1>
+		</header>
+		<main>
+			<section class="spellLists">
+				<label>Spell List: </label><br>
+				<select id="selectList">
+					<option value="">Select a Spell List</option>
+					<option value="cleric">Cleric</option>
+					<option value="druid">Druid</option>
+					<option value="paladin">Paladin</option>
+					<option value="paleMaster">Pale Master</option>
+				</select>
+			</section>
+			<br>
+			<section class="spellDisplay">
+				<label>Available Spells:</label><br>
+				<textarea id="availableSpells" cols="50" rows="20"></textarea><br>
+				<button id="generateBtn">Generate List</button>
+				
+				<br><br>
+				
+				<label>Random Selection:</label><br>
+				<textarea id="randomOutput" cols="50" rows="20"></textarea><br>
+				
+			</section>
+		</main>
+	</div>
+	<script src="randomSpellSelector.js"></script>
+</body>
