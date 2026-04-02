@@ -14,7 +14,7 @@
 		<main>
 			<section class="spellLists">
 				<label>Spell List: </label><br>
-				<select id="selectList">
+				<select id="selectList" onchange=populateList(this.value)>
 					<option value="">Select a Spell List</option>
 					<option value="cleric">Cleric</option>
 					<option value="druid">Druid</option>
