@@ -1,4 +1,4 @@
-const testData = {
+/*const testData = {
 	"druid":[
 		{
 			"first": [
@@ -49,7 +49,9 @@ const testData = {
 			]
 		},
 	],
-};
+};*/
+
+
 
 let classList = ""
 let spellLevel = 0
@@ -66,9 +68,12 @@ let seventh = []
 let eighth = []
 let ninth = []
 
-fetch("./TestSpells.json")
+let testData;
+
+fetch("./testJSON.json")
 	.then(response => response.json())
 	.then(data => {
+		testData = data;
 		console.log(data);
 	})
 	.catch(error => console.error("error loading JSON:", error));
