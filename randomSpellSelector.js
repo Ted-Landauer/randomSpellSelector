@@ -88,6 +88,7 @@ Promise.all([
 		globalData.paladin = paladin;
 		globalData.palemaster = palemaster;
 		console.log("All data loaded!", globalData);
+		
 	})
 	.catch(error => console.error(`error loading JSON: ${error}`));
 
@@ -162,7 +163,20 @@ function populateAvailableSpells () {
 
 function generateFullList (list) {
 	//spellList = testData[list][0];
-	spellList = globalData[list][0];
+	spellList = globalData[list][list][0];
+	
+	console.log(" ----- global data paths ----- ")
+	console.log("global data paths[list]")
+	console.log(globalData[list])
+	
+	console.log("global data paths[list][0]")
+	console.log(globalData[list][0])
+	
+	console.log("global data paths[list][list]")
+	console.log(globalData[list][list])
+	
+	console.log("global data paths[list][list][0]")
+	console.log(globalData[list][list][0])
 	
 	fullList = "";
 	
