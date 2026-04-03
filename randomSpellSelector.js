@@ -157,6 +157,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
+
+
 // Populate the list of all spells
 function populateAvailableSpells () {
 	// alert the user that they haven't selected a spell list yet
@@ -173,7 +175,7 @@ function populateAvailableSpells () {
 	// fill in the html text area element
 	document.getElementById("availableSpells").innerHTML = spells;
 	
-	document.getElementById("slots").innerHTML = "";
+	
 	
 	
 }
@@ -249,6 +251,9 @@ function generateRandList () {
 	let spellSet = new Set();
 	let randomSpell = "";
 	let randomSelection = "";
+	
+	console.log("trueRand Value")
+	console.log(trueRand)
 	
 	// check what type of random we want
 	// True Random: We don't care about distribution of spells by level
@@ -454,6 +459,10 @@ function generateRandList () {
 			// figure out how many spells per level we'll be grabbing
 			let spellsPerLevel = Math.floor(totalSpells / spellLevel);
 			
+			if (spellsPerLevel === 0) {
+				alert("The info you've entered won't generate any spells with Structured Random. Try using True Random if you want a small list.");
+			}
+			
 			// loop over each level of spell until we have a "mostly" even distribution from each level
 			for (let j = 0; j < spellsPerLevel; j++) {
 				let alreadyAdded = false;
@@ -612,7 +621,7 @@ function generateRandList () {
 								
 							} else {
 								alreadyAdded = true;
-								remainderBool = false;
+								
 							}
 							
 						} while (alreadyAdded);
@@ -860,7 +869,7 @@ function setRandomType (randValue) {
 }
 
 // converts a set to a string for display
-function convertSetToSring(toBeConverted) {
+function convertSetToSring (toBeConverted) {
 	let builtString = "";
 	
 	// use the built in set loop method to build the string
@@ -868,3 +877,27 @@ function convertSetToSring(toBeConverted) {
 	
 	return builtString;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

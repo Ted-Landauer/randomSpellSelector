@@ -9,7 +9,26 @@
 <body>
 	<div class="input">
 		<header>
-			<h1>Random Spell List</h1>
+			<h1 id="mainTitle">Random Spell List Generator</h1>
+			<label>This page will generate a list of spells that have been randomly selected from a specific D&D 5e	class spell list.</label>
+			
+			<div class="instructionsText">
+								
+				<label id="title">===== How To Use =====</label><br>
+				<p>Step 1. Select your class</p>
+				<p>Step 2. Select the highest level of spell slot you have access to</p>
+				<p>Step 3. Enter the total number of spell you can prepare each day</p>
+				<p id="threeA">- Usually Calculated By: {CLASS LEVEL} + {SPELLCASTING STAT MODIFIER}</p>
+				<p>Step 4. Select the type of random you want</p>
+				<p id="fourA">- Structured Random: Even distribution of spells per level with weight towards lower level spells</p>
+				<p id="fourB">- True Random: Select a list of spells and to the hells with an even distribution</p>
+				<p>Step 5. Generate the list of available spells</p>
+				<p>Step 6. Generate your list of random spells</p>
+				
+					
+					
+				
+			</div>
 			
 		</header>
 		<main>
@@ -66,13 +85,13 @@
 				<div id="fullList">
 					<label>Available Spells:</label>
 					<button id="generateFullListBtn" onclick=populateAvailableSpells()>Generate List</button><br>
-					<textarea id="availableSpells" cols="50" rows="20"></textarea><br>
+					<textarea id="availableSpells" cols="50" rows="15"></textarea><br>
 				</div>
 				
 				<div id="generatedList">
 					<label>Random Selection:</label>
 					<button id="generateRandListBtn" onclick=populateRandomList()>Generate List</button><br>
-					<textarea id="randomOutput" cols="50" rows="20"></textarea><br>
+					<textarea id="randomOutput" cols="50" rows="15"></textarea><br>
 				</div>
 				
 			</section>
