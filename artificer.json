@@ -1,0 +1,116 @@
+{
+	"artificer":[
+		{
+			"first":[
+				"absorb elements",
+				"alarm",
+				"catapult",
+				"cure wounds",
+				"detect magic",
+				"disguise self",
+				"expeditious retreat",
+				"faerie fire",
+				"false life",
+				"feather fall",
+				"grease",
+				"identify",
+				"jump",
+				"longstrider",
+				"necrotic glow",
+				"purify food and drink",
+				"sanctuary",
+				"snare",
+				"tasha's caustic brew",
+				"watery spear"
+			],
+			"second":[
+				"aid",
+				"air bubble",
+				"alter self",
+				"arcane lock",
+				"blur",
+				"continual flame",
+				"darkvision",
+				"enhance ability",
+				"enlarge reduce",
+				"hamund's herbal hypodermic",
+				"heat metal",
+				"homunculus servant",
+				"invisibility",
+				"kinetic jaunt",
+				"lesser restoration",
+				"levitate",
+				"magic mouth",
+				"magic weapon",
+				"magical backlash",
+				"protection from poison",
+				"pyrotechnics",
+				"rope trick",
+				"see invisibility",
+				"skywrite",
+				"spider climb",
+				"vortex warp",
+				"web"
+			],
+			"third":[
+				"ashardalon's stride",
+				"blink",
+				"catnap",
+				"create food and water",
+				"dancing decoy",
+				"detect portal",
+				"dispel magic",
+				"elemental weapon",
+				"elminster's evoked delivery",
+				"flame arrows",
+				"fly",
+				"glyph of warding",
+				"haste",
+				"intellect fortress",
+				"protection from energy",
+				"revivify",
+				"telegrab",
+				"tiny servant",
+				"water breathing",
+				"water walk"
+			],
+			"fourth":[
+				"arcane eye",
+				"dartak's retribution",
+				"elemental bane",
+				"fabricate",
+				"freedom of movement",
+				"leomund's secret chest",
+				"mordenkainen's faithful hound",
+				"mordenkainen's private sanctum",
+				"nystul's false trail",
+				"otiluke's resilient sphere",
+				"stone shape",
+				"stoneskin",
+				"summon construct"
+					],
+			"fifth":[
+				"animate objects",
+				"bigby's hand",
+				"create spelljamming helm",
+				"creation",
+				"greater restoration",
+				"skill empowerment",
+				"transmute rock",
+				"wall of stone"
+			],
+			"sixth":[
+			
+			],
+			"seventh":[
+			
+			],
+			"eighth":[
+			
+			],
+			"ninth":[
+			
+			]
+		}
+	]
+}

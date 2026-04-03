@@ -70,6 +70,29 @@ let ninth = []
 
 let testData;
 
+let globalData = {};
+
+
+
+Promise.all([
+	fetch('./artificer.json').then(r => r.json()),
+	fetch('./cleric.json').then(r => r.json()),
+	fetch('./druid.json').then(r => r.json()),
+	fetch('./paladin.json').then(r => r.json()),
+	fetch('./palemaster.json').then(r => r.json())
+])
+	.then(([artificer, cleric, druid, paladin, palemaster]) => {
+		globalData.artificer = artificer;
+		globalData.cleric = cleric;
+		globalData.druid = druid;
+		globalData.paladin = paladin;
+		globalData.palemaster = palemaster;
+		console.log("All data loaded!");
+	})
+	.catch(error => console.error(`error loading JSON: ${error}`));
+
+
+
 fetch("./testJSON.json")
 	.then(response => response.json())
 	.then(data => {
@@ -80,13 +103,11 @@ fetch("./testJSON.json")
 
 //const jsonString = JSON.stringify(testData);
 
-
 //test for accessing data in specific json
 //OBJECT["CLASS VALUE"][INDEX(note, there is only 1 index in this format)].NAMED LIST[POSITION IN NAMED LIST]
 //const tempVal = testData["druid"][0].second[2]
 
 //const tempVal2 = testData["druid"][0].first
-
 
 //console.log("printing temp val")
 //console.log(tempVal)
@@ -140,7 +161,8 @@ function populateAvailableSpells () {
 }
 
 function generateFullList (list) {
-	spellList = testData[list][0];
+	//spellList = testData[list][0];
+	spellList = globalData[list][0];
 	
 	fullList = "";
 	
