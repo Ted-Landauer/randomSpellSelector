@@ -71,7 +71,7 @@ fetch("./TestSpells.json")
 	.then(data => {
 		console.log(data);
 	})
-	.catch(error => console.error("error loading JSON:" error));
+	.catch(error => console.error("error loading JSON:", error));
 
 //const jsonString = JSON.stringify(testData);
 
