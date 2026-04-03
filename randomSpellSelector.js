@@ -165,18 +165,18 @@ function generateFullList (list) {
 	//spellList = testData[list][0];
 	spellList = globalData[list][list][0];
 	
-	console.log(" ----- global data paths ----- ")
-	console.log("global data paths[list]")
-	console.log(globalData[list])
+	//console.log(" ----- global data paths ----- ")
+	//console.log("global data paths[list]")
+	//console.log(globalData[list])
 	
-	console.log("global data paths[list][0]")
-	console.log(globalData[list][0])
+	//console.log("global data paths[list][0]")
+	//console.log(globalData[list][0])
 	
-	console.log("global data paths[list][list]")
-	console.log(globalData[list][list])
+	//console.log("global data paths[list][list]")
+	//console.log(globalData[list][list])
 	
-	console.log("global data paths[list][list][0]")
-	console.log(globalData[list][list][0])
+	//console.log("global data paths[list][list][0]")
+	//console.log(globalData[list][list][0])
 	
 	fullList = "";
 	
@@ -219,13 +219,20 @@ function generateRandList () {
 	
 	if (randomType === "trueRand") {
 		
+		
+		let classSpecificCeiling = 9;
+		
+		if (classList === "artificer") {
+			classSpecificCeiling = 5;
+		}
+		
 		for (let k = 0; k < totalSpells; k++) {
-			randomSpellLevel = Math.floor(Math.random() * 9) + 1;
+			randomSpellLevel = Math.floor(Math.random() * classSpecificCeiling) + 1;
 			
 			switch (randomSpellLevel) {
 				case 1:
 					do {
-						randomSpell = first[Math.floor(Math.random() * first.length)];
+						randomSpell = first[Math.floor(Math.random() * first.length)] + " - 1st";
 						
 						if (!spellSet.has(randomSpell)) {
 							spellSet.add(randomSpell);
@@ -242,7 +249,7 @@ function generateRandList () {
 					
 				case 2:
 					do {
-						randomSpell = second[Math.floor(Math.random() * second.length)];
+						randomSpell = second[Math.floor(Math.random() * second.length)] + " - 2nd";
 						
 						if (!spellSet.has(randomSpell)) {
 							spellSet.add(randomSpell);
@@ -259,7 +266,7 @@ function generateRandList () {
 					
 				case 3:
 					do {
-						randomSpell = third[Math.floor(Math.random() * third.length)];
+						randomSpell = third[Math.floor(Math.random() * third.length)] + " - 3rd";
 						
 						if (!spellSet.has(randomSpell)) {
 							spellSet.add(randomSpell);
@@ -276,7 +283,7 @@ function generateRandList () {
 					
 				case 4:
 					do {
-						randomSpell = fourth[Math.floor(Math.random() * fourth.length)];
+						randomSpell = fourth[Math.floor(Math.random() * fourth.length)] + " - 4th";
 						
 						if (!spellSet.has(randomSpell)) {
 							spellSet.add(randomSpell);
@@ -293,7 +300,7 @@ function generateRandList () {
 					
 				case 5:
 					do {
-						randomSpell = fifth[Math.floor(Math.random() * fifth.length)];
+						randomSpell = fifth[Math.floor(Math.random() * fifth.length)] + " - 5th";
 						
 						if (!spellSet.has(randomSpell)) {
 							spellSet.add(randomSpell);
@@ -310,7 +317,7 @@ function generateRandList () {
 					
 				case 6:
 					do {
-						randomSpell = sixth[Math.floor(Math.random() * sixth.length)];
+						randomSpell = sixth[Math.floor(Math.random() * sixth.length)] + " - 6th";
 						
 						if (!spellSet.has(randomSpell)) {
 							spellSet.add(randomSpell);
@@ -327,7 +334,7 @@ function generateRandList () {
 					
 				case 7:
 					do {
-						randomSpell = seventh[Math.floor(Math.random() * seventh.length)];
+						randomSpell = seventh[Math.floor(Math.random() * seventh.length)] + " - 7th";
 						
 						if (!spellSet.has(randomSpell)) {
 							spellSet.add(randomSpell);
@@ -344,7 +351,7 @@ function generateRandList () {
 					
 				case 8:
 					do {
-						randomSpell = eighth[Math.floor(Math.random() * eighth.length)];
+						randomSpell = eighth[Math.floor(Math.random() * eighth.length)] + " - 8th";
 						
 						if (!spellSet.has(randomSpell)) {
 							spellSet.add(randomSpell);
@@ -361,7 +368,7 @@ function generateRandList () {
 					
 				case 9:
 					do {
-						randomSpell = ninth[Math.floor(Math.random() * ninth.length)];
+						randomSpell = ninth[Math.floor(Math.random() * ninth.length)] + " - 9th";
 						
 						if (!spellSet.has(randomSpell)) {
 							spellSet.add(randomSpell);
@@ -379,318 +386,326 @@ function generateRandList () {
 			
 		}
 			
-	}
-	let remainder = 0;
-	let remainderBool = false;
-	let remainderActive = false;
-	
-	if (totalSpells % spellLevel !== 0) {
-		remainder = totalSpells % spellLevel;
-		remainderBool = true;
+	} else {
 		
-	}
 	
-	//for each level of spell
-	for (let i = 1; i <= spellLevel; i++) {
-		let spellsPerLevel = Math.floor(totalSpells / spellLevel);
+	
+	
+	
+	
+		let remainder = 0;
+		let remainderBool = false;
+		let remainderActive = false;
 		
-		for (let j = 0; j < spellsPerLevel; j++) {
-			let alreadyAdded = false;
+		if (totalSpells % spellLevel !== 0) {
+			remainder = totalSpells % spellLevel;
+			remainderBool = true;
 			
-			switch (i) {
-				case 1:
-					if (first.length < spellsPerLevel) {
-						spellsPerLevel = first.length;
-						
-					}
-					
-					do {
-						
-						if (remainderBool && ((j + 1) === spellsPerLevel)) {
-							remainderActive = true;
-							remainderBool = false;
-						
-						}
-					
-						randomSpell = first[Math.floor(Math.random() * first.length)];
-						
-						if (!spellSet.has(randomSpell)) {
-							
-							spellSet.add(randomSpell);
-							console.log("added to the set");
-							alreadyAdded = false;
-							
-						} else {
-							alreadyAdded = true;
-							
-						}
-						
-						
-						
-					} while (alreadyAdded);
-					
-					break;
-					
-				case 2:
-					if (second.length < spellsPerLevel) {
-						spellsPerLevel = second.length;
-						
-					} 
-					
-					do {
-						
-						if (remainderBool) {
-							remainderActive = true;
-							remainderBool = false;
-						}
-						
-						randomSpell = second[Math.floor(Math.random() * second.length)];
-						
-						if (!spellSet.has(randomSpell)) {
-							
-							spellSet.add(randomSpell);
-							console.log("added to the set");
-							alreadyAdded = false;
-							
-						} else {
-							alreadyAdded = true;
-						}
-						
-					} while (alreadyAdded);
-					
-				
-					break;
-					
-				case 3:
-					if (third.length < spellsPerLevel) {
-						spellsPerLevel = third.length;
-						
-					}
-					
-					do {
-						
-						if (remainderBool) {
-							remainderActive = true;
-							remainderBool = false;
-						}
-						
-						randomSpell = third[Math.floor(Math.random() * third.length)];
-						
-						if (!spellSet.has(randomSpell)) {
-							
-							spellSet.add(randomSpell);
-							console.log("added to the set") 
-							alreadyAdded = false;
-							
-						} else {
-							alreadyAdded = true;
-						}
-						
-					} while (alreadyAdded);
-					
-				
-					break;
-					
-				case 4:
-					if (fourth.length < spellsPerLevel) {
-						spellsPerLevel = fourth.length;
-						
-					}
-					
-					do {
-						
-						if (remainderBool) {
-							remainderActive = true;
-							remainderBool = false;
-						}
-						
-						randomSpell = fourth[Math.floor(Math.random() * fourth.length)];
-						
-						if (!spellSet.has(randomSpell)) {
-							
-							spellSet.add(randomSpell);
-							console.log("added to the set") 
-							alreadyAdded = false;
-							
-						} else {
-							alreadyAdded = true;
-						}
-						
-					} while (alreadyAdded);
-					
-				
-					break;
-					
-				case 5:
-					if (fifth.length < spellsPerLevel) {
-						spellsPerLevel = fifth.length;
-						
-					}
-					
-					do {
-						
-						if (remainderBool) {
-							remainderActive = true;
-							remainderBool = false;
-						}
-						
-						randomSpell = fifth[Math.floor(Math.random() * fifth.length)];
-						
-						if (!spellSet.has(randomSpell)) {
-							
-							spellSet.add(randomSpell);
-							console.log("added to the set") 
-							alreadyAdded = false;
-							
-						} else {
-							alreadyAdded = true;
-							remainderBool = false;
-						}
-						
-					} while (alreadyAdded);
-					
-				
-					break;
-					
-				case 6:
-					if (sixth.length < spellsPerLevel) {
-						spellsPerLevel = sixth.length;
-						
-					}
-					
-					do {
-						
-						if (remainderBool) {
-							remainderActive = true;
-							remainderBool = false;
-							remainderBool = false;
-						}
-						
-						randomSpell = sixth[Math.floor(Math.random() * sixth.length)];
-						
-						if (!spellSet.has(randomSpell)) {
-							
-							spellSet.add(randomSpell);
-							console.log("added to the set") 
-							alreadyAdded = false;
-							
-						} else {
-							alreadyAdded = true;
-						}
-						
-					} while (alreadyAdded);
-					
-				
-					break;
-					
-				case 7:
-					if (seventh.length < spellsPerLevel) {
-						spellsPerLevel = seventh.length;
-						
-					}
-					
-					do {
-						
-						if (remainderBool) {
-							remainderActive = true;
-							remainderBool = false;
-						}
-						
-						randomSpell = seventh[Math.floor(Math.random() * seventh.length)];
-						
-						if (!spellSet.has(randomSpell)) {
-							
-							spellSet.add(randomSpell);
-							console.log("added to the set") 
-							alreadyAdded = false;
-							
-						} else {
-							alreadyAdded = true;
-						}
-						
-					} while (alreadyAdded);
-					
-				
-					break;
-					
-				case 8:
-					if (eighth.length < spellsPerLevel) {
-						spellsPerLevel = eighth.length;
-						
-					}
-					
-					do {
-						
-						if (remainderBool) {
-							remainderActive = true;
-							remainderBool = false;
-						}
-						
-						randomSpell = eighth[Math.floor(Math.random() * eighth.length)];
-						
-						if (!spellSet.has(randomSpell)) {
-							
-							spellSet.add(randomSpell);
-							console.log("added to the set") 
-							alreadyAdded = false;
-							
-						} else {
-							alreadyAdded = true;
-						}
-						
-					} while (alreadyAdded);
-					
-				
-					break;
-					
-				case 9:
-					if (ninth.length < spellsPerLevel) {
-						spellsPerLevel = ninth.length;
-						
-					}
-					
-					do {
-						
-						if (remainderBool) {
-							remainderActive = true;
-							remainderBool = false;
-						}
-						
-						randomSpell = ninth[Math.floor(Math.random() * ninth.length)];
-						
-						if (!spellSet.has(randomSpell)) {
-							
-							spellSet.add(randomSpell);
-							console.log("added to the set") 
-							alreadyAdded = false;
-							
-						} else {
-							alreadyAdded = true;
-						}
-						
-					} while (alreadyAdded);
-					
-				
-					break;
-					
-					
-			}
+		}
+		
+		//for each level of spell
+		for (let i = 1; i <= spellLevel; i++) {
+			let spellsPerLevel = Math.floor(totalSpells / spellLevel);
 			
-			if (remainder !== 0) {
+			for (let j = 0; j < spellsPerLevel; j++) {
+				let alreadyAdded = false;
 				
-				if (remainderActive) {
-					j--;
-					remainder--;
-					remainderActive = false;
+				switch (i) {
+					case 1:
+						if (first.length < spellsPerLevel) {
+							spellsPerLevel = first.length;
+							
+						}
+						
+						do {
+							
+							if (remainderBool && ((j + 1) === spellsPerLevel)) {
+								remainderActive = true;
+								remainderBool = false;
+							
+							}
+						
+							randomSpell = first[Math.floor(Math.random() * first.length)] + " - 1st";
+							
+							if (!spellSet.has(randomSpell)) {
+								
+								spellSet.add(randomSpell);
+								console.log("added to the set");
+								alreadyAdded = false;
+								
+							} else {
+								alreadyAdded = true;
+								
+							}
+							
+							
+							
+						} while (alreadyAdded);
+						
+						break;
+						
+					case 2:
+						if (second.length < spellsPerLevel) {
+							spellsPerLevel = second.length;
+							
+						} 
+						
+						do {
+							
+							if (remainderBool) {
+								remainderActive = true;
+								remainderBool = false;
+							}
+							
+							randomSpell = second[Math.floor(Math.random() * second.length)] + " - 2nd";
+							
+							if (!spellSet.has(randomSpell)) {
+								
+								spellSet.add(randomSpell);
+								console.log("added to the set");
+								alreadyAdded = false;
+								
+							} else {
+								alreadyAdded = true;
+							}
+							
+						} while (alreadyAdded);
+						
+					
+						break;
+						
+					case 3:
+						if (third.length < spellsPerLevel) {
+							spellsPerLevel = third.length;
+							
+						}
+						
+						do {
+							
+							if (remainderBool) {
+								remainderActive = true;
+								remainderBool = false;
+							}
+							
+							randomSpell = third[Math.floor(Math.random() * third.length)] + " - 3rd";
+							
+							if (!spellSet.has(randomSpell)) {
+								
+								spellSet.add(randomSpell);
+								console.log("added to the set") 
+								alreadyAdded = false;
+								
+							} else {
+								alreadyAdded = true;
+							}
+							
+						} while (alreadyAdded);
+						
+					
+						break;
+						
+					case 4:
+						if (fourth.length < spellsPerLevel) {
+							spellsPerLevel = fourth.length;
+							
+						}
+						
+						do {
+							
+							if (remainderBool) {
+								remainderActive = true;
+								remainderBool = false;
+							}
+							
+							randomSpell = fourth[Math.floor(Math.random() * fourth.length)] + " - 4th";
+							
+							if (!spellSet.has(randomSpell)) {
+								
+								spellSet.add(randomSpell);
+								console.log("added to the set") 
+								alreadyAdded = false;
+								
+							} else {
+								alreadyAdded = true;
+							}
+							
+						} while (alreadyAdded);
+						
+					
+						break;
+						
+					case 5:
+						if (fifth.length < spellsPerLevel) {
+							spellsPerLevel = fifth.length;
+							
+						}
+						
+						do {
+							
+							if (remainderBool) {
+								remainderActive = true;
+								remainderBool = false;
+							}
+							
+							randomSpell = fifth[Math.floor(Math.random() * fifth.length)] + " - 5th";
+							
+							if (!spellSet.has(randomSpell)) {
+								
+								spellSet.add(randomSpell);
+								console.log("added to the set") 
+								alreadyAdded = false;
+								
+							} else {
+								alreadyAdded = true;
+								remainderBool = false;
+							}
+							
+						} while (alreadyAdded);
+						
+					
+						break;
+						
+					case 6:
+						if (sixth.length < spellsPerLevel) {
+							spellsPerLevel = sixth.length;
+							
+						}
+						
+						do {
+							
+							if (remainderBool) {
+								remainderActive = true;
+								remainderBool = false;
+								remainderBool = false;
+							}
+							
+							randomSpell = sixth[Math.floor(Math.random() * sixth.length)] + " - 6th";
+							
+							if (!spellSet.has(randomSpell)) {
+								
+								spellSet.add(randomSpell);
+								console.log("added to the set") 
+								alreadyAdded = false;
+								
+							} else {
+								alreadyAdded = true;
+							}
+							
+						} while (alreadyAdded);
+						
+					
+						break;
+						
+					case 7:
+						if (seventh.length < spellsPerLevel) {
+							spellsPerLevel = seventh.length;
+							
+						}
+						
+						do {
+							
+							if (remainderBool) {
+								remainderActive = true;
+								remainderBool = false;
+							}
+							
+							randomSpell = seventh[Math.floor(Math.random() * seventh.length)] + " - 7th";
+							
+							if (!spellSet.has(randomSpell)) {
+								
+								spellSet.add(randomSpell);
+								console.log("added to the set") 
+								alreadyAdded = false;
+								
+							} else {
+								alreadyAdded = true;
+							}
+							
+						} while (alreadyAdded);
+						
+					
+						break;
+						
+					case 8:
+						if (eighth.length < spellsPerLevel) {
+							spellsPerLevel = eighth.length;
+							
+						}
+						
+						do {
+							
+							if (remainderBool) {
+								remainderActive = true;
+								remainderBool = false;
+							}
+							
+							randomSpell = eighth[Math.floor(Math.random() * eighth.length)] + " - 8th";
+							
+							if (!spellSet.has(randomSpell)) {
+								
+								spellSet.add(randomSpell);
+								console.log("added to the set") 
+								alreadyAdded = false;
+								
+							} else {
+								alreadyAdded = true;
+							}
+							
+						} while (alreadyAdded);
+						
+					
+						break;
+						
+					case 9:
+						if (ninth.length < spellsPerLevel) {
+							spellsPerLevel = ninth.length;
+							
+						}
+						
+						do {
+							
+							if (remainderBool) {
+								remainderActive = true;
+								remainderBool = false;
+							}
+							
+							randomSpell = ninth[Math.floor(Math.random() * ninth.length)] + " - 9th";
+							
+							if (!spellSet.has(randomSpell)) {
+								
+								spellSet.add(randomSpell);
+								console.log("added to the set") 
+								alreadyAdded = false;
+								
+							} else {
+								alreadyAdded = true;
+							}
+							
+						} while (alreadyAdded);
+						
+					
+						break;
+						
+						
+				}
+				
+				if (remainder !== 0) {
+					
+					if (remainderActive) {
+						j--;
+						remainder--;
+						remainderActive = false;
+						
+					}
 					
 				}
 				
 			}
 			
+			remainderBool = true;
+			
 		}
-		
-		remainderBool = true;
-		
+	
 	}
 	
 	console.log(spellSet);
