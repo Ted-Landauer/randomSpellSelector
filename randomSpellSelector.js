@@ -83,16 +83,16 @@ fetch("./testJSON.json")
 
 //test for accessing data in specific json
 //OBJECT["CLASS VALUE"][INDEX(note, there is only 1 index in this format)].NAMED LIST[POSITION IN NAMED LIST]
-const tempVal = testData["druid"][0].second[2]
+//const tempVal = testData["druid"][0].second[2]
 
-const tempVal2 = testData["druid"][0].first
+//const tempVal2 = testData["druid"][0].first
 
 
-console.log("printing temp val")
-console.log(tempVal)
+//console.log("printing temp val")
+//console.log(tempVal)
 
-console.log("printing temp val 2")
-console.log(tempVal2)
+//console.log("printing temp val 2")
+//console.log(tempVal2)
 
 
 
