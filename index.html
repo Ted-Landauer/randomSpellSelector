@@ -10,70 +10,70 @@
 	<div class="input">
 		<header>
 			<h1>Random Spell List</h1>
-			<!--button id="generateBtn" onclick=generateRandList()>TEST BUTTON</button--><br>
-			
 			
 		</header>
 		<main>
 			<section class="spellLists">
-				<label>Spell List: </label>
+				<div id="inputFields">
+					<div class="classList">
+						<label id="classLabel">Spell List:</label>
+						<select id="selectList">
+							<option value="">Select a Spell List</option>
+							<option value="artificer">Artificer</option>
+							<option value="cleric">Cleric</option>
+							<option value="druid">Druid</option>
+							<option value="paladin">Paladin</option>
+							<option value="paleMaster">Pale Master</option>
+						</select>
+					</div>
+					<br>
+					<div class="spellLimit">
+						<label id="spellLabel">What's your highest level spell slot?</label>
+						<select id="spellLevelLimit">
+							<option value="">Select a Spell Level</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+						</select>
+					</div>
+					<br>
+					<div class="totalSlots">
+						<label id="slotsLabel" for="slots">How many spells can you prepare?</label>
+						<input type="text" id="slots" name="slots" required size="10"/>
+					</div>
+				</div>
 				
-				<!-- onchange=setSpellList(this.value) -->
-				<select id="selectList">
-					<option value="">Select a Spell List</option>
-					<option value="artificer">Artificer</option>
-					<option value="cleric">Cleric</option>
-					<option value="druid">Druid</option>
-					<option value="paladin">Paladin</option>
-					<option value="paleMaster">Pale Master</option>
-				</select><br><br>
-				
-				<label>What's your highest level spell slot?</label>
-				
-				<!-- onchange=setSpellLevel(this.value) -->
-				<select id="spellLevelLimit">
-					<option value="">Select a Spell Level</option>
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
-					<option value="6">6</option>
-					<option value="7">7</option>
-					<option value="8">8</option>
-					<option value="9">9</option>
-				</select><br><br>
-				
-				<label for="slots">How many spells can you prepare?</label>
-				<input type="text" id="slots" name="slots" required size="10"/><br><br>
-				
-				<fieldset>
-					<legend>What type of random selection do you want?</legend>
-					
-					<div>
+				<div id="randSelection">
+					<fieldset>
+						<legend>What type of random selection do you want?</legend>
+						
 						<input type="radio" id="structured" name="randomMethod" value="structured" checked onchange=setRandomType(this.value) />
 						<label for="structured">Structured Random</label>
-					</div>
 					
-					<div>
 						<input type="radio" id="trueRand" name="randomMethod" value="trueRand" onchange=setRandomType(this.value) />
 						<label for="trueRand">True Random</label>
-					</div>
-				
-				</fieldset>
-				
+					</fieldset>
+				</div>
 			</section>
 			<br>
 			<section class="spellDisplay">
-				<label>Available Spells:</label>
-				<button id="generateBtn" onclick=populateAvailableSpells()>Generate List</button><br>
-				<textarea id="availableSpells" cols="50" rows="20"></textarea><br>
+				<div id="fullList">
+					<label>Available Spells:</label>
+					<button id="generateFullListBtn" onclick=populateAvailableSpells()>Generate List</button><br>
+					<textarea id="availableSpells" cols="50" rows="20"></textarea><br>
+				</div>
 				
-				<br><br>
-				
-				<label>Random Selection:</label>
-				<button id="generateBtn" onclick=populateRandomList()>Generate List</button><br>
-				<textarea id="randomOutput" cols="50" rows="20"></textarea><br>
+				<div id="generatedList">
+					<label>Random Selection:</label>
+					<button id="generateRandListBtn" onclick=populateRandomList()>Generate List</button><br>
+					<textarea id="randomOutput" cols="50" rows="20"></textarea><br>
+				</div>
 				
 			</section>
 		</main>

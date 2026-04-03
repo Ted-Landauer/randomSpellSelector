@@ -1,4 +1,6 @@
-/*const testData = {
+//TEST DATA
+/*
+const testData = {
 	"druid":[
 		{
 			"first": [
@@ -52,12 +54,13 @@
 };*/
 
 
-
+// Global Values
 let classList = ""
 let spellLevel = 0
 let totalSpells = 0
 let randomType = "structured"
 
+// Lists for spells
 let first = []
 let second = []
 let third = []
@@ -68,12 +71,14 @@ let seventh = []
 let eighth = []
 let ninth = []
 
+// Test Data value
 let testData;
 
+// Live Site List Variable
 let globalData = {};
 
 
-
+// Fetch and preload all the needed JSON into one place before loading the page
 Promise.all([
 	fetch('./artificer.json').then(r => r.json()),
 	fetch('./cleric.json').then(r => r.json()),
@@ -93,6 +98,7 @@ Promise.all([
 	.catch(error => console.error(`error loading JSON: ${error}`));
 
 
+/*--- FOR USE IN LOCAL DEVELOPMENT ---
 
 fetch("./testJSON.json")
 	.then(response => response.json())
@@ -101,6 +107,7 @@ fetch("./testJSON.json")
 		console.log(data);
 	})
 	.catch(error => console.error("error loading JSON:", error));
+
 
 //const jsonString = JSON.stringify(testData);
 
@@ -116,8 +123,10 @@ fetch("./testJSON.json")
 //console.log("printing temp val 2")
 //console.log(tempVal2)
 
+*/
 
 
+// Event Listeners for setting global info
 document.addEventListener("DOMContentLoaded", function() {
 	const classElement = document.getElementById("selectList");
 	classElement.addEventListener("change", function() {
@@ -148,22 +157,34 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-
+// Populate the list of all spells
 function populateAvailableSpells () {
+	// alert the user that they haven't selected a spell list yet
 	if (classList === "") {
 		alert("You haven't selected a class spell list!!!");
 	}
+	
+	// get the number input to the totalSpells area
 	getSpellSlots();
 	
+	// generate the list for the specific class
 	const spells = generateFullList(classList)
 	
+	// fill in the html text area element
 	document.getElementById("availableSpells").innerHTML = spells;
+	
+	document.getElementById("slots").innerHTML = "";
+	
 	
 }
 
+// generate a list of all spells available to a specific class
 function generateFullList (list) {
+	
+	/* ----- LOCAL DEV/TESTING INFO -----
+		
+	
 	//spellList = testData[list][0];
-	spellList = globalData[list][list][0];
 	
 	//console.log(" ----- global data paths ----- ")
 	//console.log("global data paths[list]")
@@ -178,17 +199,27 @@ function generateFullList (list) {
 	//console.log("global data paths[list][list][0]")
 	//console.log(globalData[list][list][0])
 	
+	*/
+	
+	// read the json at [ {_CLASS_} ][ {_CLASS_} ][0]
+	spellList = globalData[list][list][0];
+	
 	fullList = "";
 	
+	// for every level of spell in the class specific json data... 
 	for (const level in spellList) {
 		
+		// for every spell at each level...
 		for (const spell in spellList[level]) {
+			// take just the active spell from the json data at [ {_SPELL LEVEL_} ][ {_SPELL KEY_} ]
 			currentSpell = spellList[level][spell];
 			
+			// build a string to display
 			fullList += currentSpell + "\n";
 			
 		}
 		
+		// fill the individual spell arrays with the spells of the correct level
 		fillSpellArrays(level, spellList[level]);
 		
 	}
@@ -197,48 +228,63 @@ function generateFullList (list) {
 }
 
 
-
+// get a random selection of spells
 function populateRandomList () {
+	// every class with have at least first level spells, so check that we've loading things correctly
 	if (first.length === 0) {
 		alert("Please generate your available spells first!");
 	}
 	
+	// get the list of random spells and set the randomOutput html element to display it
 	const randSpells = generateRandList();
 	document.getElementById("randomOutput").innerHTML = randSpells;
 	
 }
 
 
-
+// Generate the requested random list (heavy lifing here)
 function generateRandList () {
 	
+	//create a new set and needed empty variables
 	let spellSet = new Set();
 	let randomSpell = "";
 	let randomSelection = "";
 	
-	
+	// check what type of random we want
+	// True Random: We don't care about distribution of spells by level
+	// Structured Random: We want an even distribution of spells per spell level
 	if (randomType === "trueRand") {
 		
-		
+		// default value for most classes
 		let classSpecificCeiling = 9;
 		
+		// artificers don't get spells over 5th level so we need to hard set it for later
 		if (classList === "artificer") {
 			classSpecificCeiling = 5;
 		}
 		
+		// run a loop for a number of times equal to the total number of spells that the user can prepare
 		for (let k = 0; k < totalSpells; k++) {
+			// get a random number between 1 and 9 (default) or 5 (artificier only)
 			randomSpellLevel = Math.floor(Math.random() * classSpecificCeiling) + 1;
 			
+			//switch case for the random spell level
+			//NOTE: Lots of duplicated code here so comments will cover one case as they do the same just on different lists
 			switch (randomSpellLevel) {
 				case 1:
+					// do-while loop to help with duplicate values
 					do {
+						// grab a random spell from the first level spell list
 						randomSpell = first[Math.floor(Math.random() * first.length)] + " - 1st";
 						
+						// if the output set doesn't have the randomly selected spell in it already
 						if (!spellSet.has(randomSpell)) {
+							// add the spell to the set, and make sure the loop exit boolean is set
 							spellSet.add(randomSpell);
 							alreadyAdded = false;
 							
 						} else {
+							// we had a duplicate value and need to set the loop to loop
 							alreadyAdded = true;
 						}
 						
@@ -387,58 +433,67 @@ function generateRandList () {
 		}
 			
 	} else {
-		
+		// Structured Random
+		// this method of random selection has an issue with remainder values
+		// this is a result of wanting an even distribution of spells per level
 	
-	
-	
-	
-	
+		// declare needed values for the remainder issue
 		let remainder = 0;
 		let remainderBool = false;
 		let remainderActive = false;
 		
+		// see if we have a remainder to deal with in the first place and set it if we do
 		if (totalSpells % spellLevel !== 0) {
 			remainder = totalSpells % spellLevel;
 			remainderBool = true;
 			
 		}
 		
-		//for each level of spell
+		// loop over every level of spell that the user has access to...
 		for (let i = 1; i <= spellLevel; i++) {
+			// figure out how many spells per level we'll be grabbing
 			let spellsPerLevel = Math.floor(totalSpells / spellLevel);
 			
+			// loop over each level of spell until we have a "mostly" even distribution from each level
 			for (let j = 0; j < spellsPerLevel; j++) {
 				let alreadyAdded = false;
 				
+				// like above, only going to cover 1 case as the rest do the same on different lists
 				switch (i) {
 					case 1:
+						// check that the number of spells we'll be selecting isn't larger than the list of available spells
 						if (first.length < spellsPerLevel) {
 							spellsPerLevel = first.length;
 							
 						}
 						
+						// do-while to help with handling duplicate entries being added
 						do {
 							
+							// the check for the remainder issue
+							// Triggers one more loop iteration before moving onto the next level of spell
 							if (remainderBool && ((j + 1) === spellsPerLevel)) {
 								remainderActive = true;
 								remainderBool = false;
 							
 							}
 						
-							randomSpell = first[Math.floor(Math.random() * first.length)] + " - 1st";
+							// selects a random spell and prepends the spells level to it as a string
+							randomSpell = "1st - " + first[Math.floor(Math.random() * first.length)];
 							
+							// check if we've added the spell to the set before or not
 							if (!spellSet.has(randomSpell)) {
 								
+								// add the spell and set the loop break boolean appropriately
 								spellSet.add(randomSpell);
 								console.log("added to the set");
 								alreadyAdded = false;
 								
 							} else {
+								// set the loop to repeat until we have a non-duplicate value
 								alreadyAdded = true;
 								
 							}
-							
-							
 							
 						} while (alreadyAdded);
 						
@@ -689,9 +744,11 @@ function generateRandList () {
 						
 				}
 				
+				// if we have a remainder and remainder is active
 				if (remainder !== 0) {
 					
 					if (remainderActive) {
+						// trick the for loop to run 1 more time, decrement the remainder, deactivate it
 						j--;
 						remainder--;
 						remainderActive = false;
@@ -702,14 +759,16 @@ function generateRandList () {
 				
 			}
 			
+			// make sure we can run the remainder logic again
 			remainderBool = true;
 			
 		}
 	
 	}
 	
-	console.log(spellSet);
+	//console.log(spellSet);
 	
+	// convert our built set of spells to a string for display
 	randomSelection = convertSetToSring(spellSet);
 	
 	return randomSelection
@@ -718,6 +777,7 @@ function generateRandList () {
 
 // ----- HELPER METHODS ----- //
 
+//Fill the arrays with the spells of the correct level
 function fillSpellArrays (level, levelArray) {
 	
 	switch (level) {
@@ -761,50 +821,49 @@ function fillSpellArrays (level, levelArray) {
 	
 }
 
+// Grab the data that the user input for this element
+// no longer used, updated functionality to not need this
 function setSpellList (list) {
 	classList = list;
 	
-	//console.log("class list")
-	//console.log(classList)
-	
 }
 
+// Grab the data that the user input for this element
+// no longer used, updated functionality to not need this
 function setSpellLevel (selectedLevel) {
 	spellLevel = selectedLevel;
 	
-	//console.log("spell level")
-	//console.log(spellLevel)
-	
 }
 
+// Grab the data that the user input for this element
 function getSpellSlots () {
+	// get the value
 	totalSpells = document.getElementById("slots").value;
 	
+	// check that it's not empty and alert if it is
 	if (totalSpells === "") {
 		alert("You need to specify how many spells you can prepare!!!");
 	}
 	
+	// RAW a character can't prepare more spells than 25 normally, 30 with extra items, so we set it to a max of 40 because homebrew is cool
 	if (totalSpells > 40) {
 			totalSpells = 40;
 	}
 	
-	//console.log("spell slots")
-	//console.log(totalSpells)
-	
 }
 
+// sets the random type, called in the html directly when the value is changed
 function setRandomType (randValue) {
 		
 	randomType = randValue;
 	
-	//console.log("radio button types")
-	//console.log(randomType)
-	
 }
 
+// converts a set to a string for display
 function convertSetToSring(toBeConverted) {
 	let builtString = "";
 	
+	// use the built in set loop method to build the string
 	toBeConverted.forEach(value => builtString += value + "\n");
 	
 	return builtString;
