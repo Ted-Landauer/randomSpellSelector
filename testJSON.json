@@ -1,50 +1,52 @@
-	"druid":[
-		{
-			"first": [
-				"absorb elements",
-				"ambush",
-				"bloodhound",
-				"detect magic",
-				"entangle",
-			],
-			"second": [
-				"darkvision",
-				"desecrate",
-				"earthbind",
-				"enhance ability",
-				"find traps",
-			],
-			"third": [
-				"dispel magic",
-				"daylight",
-				"feign death",
-				"poison",
-				"wind wall",
-			]
-		},
-	],
-	"cleric":[
-		{
-			"first": [
-				"bane",
-				"bless",
-				"brimstone",
-				"command",
-				"cure wounds",
-			],
-			"second": [
-				"aid",
-				"augury",
-				"egg",
-				"enhance ability",
-				"locate object",
-			],
-			"third": [
-				"animate dead",
-				"daylight",
-				"feign death",
-				"iron mind",
-				"revivify",
-			]
-		},
-	],
+{
+   "druid":[
+      {
+         "first":[
+            "absorb elements",
+            "ambush",
+            "bloodhound",
+            "detect magic",
+            "entangle"
+         ],
+         "second":[
+            "darkvision",
+            "desecrate",
+            "earthbind",
+            "enhance ability",
+            "find traps"
+         ],
+         "third":[
+            "dispel magic",
+            "daylight",
+            "feign death",
+            "poison",
+            "wind wall"
+         ]
+      }
+   ],
+   "cleric":[
+      {
+         "first":[
+            "bane",
+            "bless",
+            "brimstone",
+            "command",
+            "cure wounds"
+         ],
+         "second":[
+            "aid",
+            "augury",
+            "egg",
+            "enhance ability",
+            "locate object"
+         ],
+         "third":[
+            "animate dead",
+            "daylight",
+            "feign death",
+            "iron mind",
+            "revivify"
+         ]
+      }
+   ]
+}
