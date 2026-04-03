@@ -87,7 +87,7 @@ Promise.all([
 		globalData.druid = druid;
 		globalData.paladin = paladin;
 		globalData.palemaster = palemaster;
-		console.log("All data loaded!");
+		console.log("All data loaded!", globalData);
 	})
 	.catch(error => console.error(`error loading JSON: ${error}`));
 
