@@ -269,6 +269,7 @@ function generateRandList () {
 		// artificers don't get spells over 5th level so we need to hard set it for later
 		if (classList === "artificer") {
 			classSpecificCeiling = 5;
+			console.log("we've got an artificer on our hands here!");
 		}
 		
 		// run a loop for a number of times equal to the total number of spells that the user can prepare
@@ -457,8 +458,18 @@ function generateRandList () {
 			
 		}
 		
+		
+		// default value for most classes
+		let structuredClassSpecificCeiling = spellLevel;
+		
+		// artificers don't get spells over 5th level so we need to hard set it for later
+		if (classList === "artificer") {
+			structuredClassSpecificCeiling = 5;
+			console.log("we've got an artificer in structured here!");
+		}
+		
 		// loop over every level of spell that the user has access to...
-		for (let i = 1; i <= spellLevel; i++) {
+		for (let i = 1; i <= structuredClassSpecificCeiling; i++) {
 			// figure out how many spells per level we'll be grabbing
 			let spellsPerLevel = Math.floor(totalSpells / spellLevel);
 			
