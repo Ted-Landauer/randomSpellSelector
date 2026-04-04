@@ -174,6 +174,9 @@ function populateAvailableSpells () {
 	
 	// fill in the html text area element
 	document.getElementById("availableSpells").innerHTML = spells;
+	document.getElementById("generateRandListBtn").disabled = false;
+	document.getElementById("slots").value = "";
+	//document.getElementById("spellLevelLimit").value = "";
 	
 	
 	
@@ -253,7 +256,7 @@ function generateRandList () {
 	let randomSelection = "";
 	
 	console.log("trueRand Value")
-	console.log(trueRand)
+	console.log(randomType)
 	
 	// check what type of random we want
 	// True Random: We don't care about distribution of spells by level
@@ -280,7 +283,7 @@ function generateRandList () {
 					// do-while loop to help with duplicate values
 					do {
 						// grab a random spell from the first level spell list
-						randomSpell = first[Math.floor(Math.random() * first.length)] + " - 1st";
+						randomSpell = "1st - " + first[Math.floor(Math.random() * first.length)];
 						
 						// if the output set doesn't have the randomly selected spell in it already
 						if (!spellSet.has(randomSpell)) {
@@ -300,7 +303,7 @@ function generateRandList () {
 					
 				case 2:
 					do {
-						randomSpell = second[Math.floor(Math.random() * second.length)] + " - 2nd";
+						randomSpell = "2nd - " + second[Math.floor(Math.random() * second.length)];
 						
 						if (!spellSet.has(randomSpell)) {
 							spellSet.add(randomSpell);
@@ -317,7 +320,7 @@ function generateRandList () {
 					
 				case 3:
 					do {
-						randomSpell = third[Math.floor(Math.random() * third.length)] + " - 3rd";
+						randomSpell = "3rd - " + third[Math.floor(Math.random() * third.length)];
 						
 						if (!spellSet.has(randomSpell)) {
 							spellSet.add(randomSpell);
@@ -334,7 +337,7 @@ function generateRandList () {
 					
 				case 4:
 					do {
-						randomSpell = fourth[Math.floor(Math.random() * fourth.length)] + " - 4th";
+						randomSpell = "4th - " + fourth[Math.floor(Math.random() * fourth.length)];
 						
 						if (!spellSet.has(randomSpell)) {
 							spellSet.add(randomSpell);
@@ -351,7 +354,7 @@ function generateRandList () {
 					
 				case 5:
 					do {
-						randomSpell = fifth[Math.floor(Math.random() * fifth.length)] + " - 5th";
+						randomSpell = "5th - " + fifth[Math.floor(Math.random() * fifth.length)];
 						
 						if (!spellSet.has(randomSpell)) {
 							spellSet.add(randomSpell);
@@ -368,7 +371,7 @@ function generateRandList () {
 					
 				case 6:
 					do {
-						randomSpell = sixth[Math.floor(Math.random() * sixth.length)] + " - 6th";
+						randomSpell = "6th - " + sixth[Math.floor(Math.random() * sixth.length)];
 						
 						if (!spellSet.has(randomSpell)) {
 							spellSet.add(randomSpell);
@@ -385,7 +388,7 @@ function generateRandList () {
 					
 				case 7:
 					do {
-						randomSpell = seventh[Math.floor(Math.random() * seventh.length)] + " - 7th";
+						randomSpell = "7th - " + seventh[Math.floor(Math.random() * seventh.length)];
 						
 						if (!spellSet.has(randomSpell)) {
 							spellSet.add(randomSpell);
@@ -402,7 +405,7 @@ function generateRandList () {
 					
 				case 8:
 					do {
-						randomSpell = eighth[Math.floor(Math.random() * eighth.length)] + " - 8th";
+						randomSpell = "8th - " + eighth[Math.floor(Math.random() * eighth.length)];
 						
 						if (!spellSet.has(randomSpell)) {
 							spellSet.add(randomSpell);
@@ -419,7 +422,7 @@ function generateRandList () {
 					
 				case 9:
 					do {
-						randomSpell = ninth[Math.floor(Math.random() * ninth.length)] + " - 9th";
+						randomSpell = "9th - " + ninth[Math.floor(Math.random() * ninth.length)];
 						
 						if (!spellSet.has(randomSpell)) {
 							spellSet.add(randomSpell);
@@ -461,6 +464,7 @@ function generateRandList () {
 			
 			if (spellsPerLevel === 0) {
 				alert("The info you've entered won't generate any spells with Structured Random. Try using True Random if you want a small list.");
+				break;
 			}
 			
 			// loop over each level of spell until we have a "mostly" even distribution from each level
@@ -521,7 +525,7 @@ function generateRandList () {
 								remainderBool = false;
 							}
 							
-							randomSpell = second[Math.floor(Math.random() * second.length)] + " - 2nd";
+							randomSpell = "2nd - " + second[Math.floor(Math.random() * second.length)];
 							
 							if (!spellSet.has(randomSpell)) {
 								
@@ -551,7 +555,7 @@ function generateRandList () {
 								remainderBool = false;
 							}
 							
-							randomSpell = third[Math.floor(Math.random() * third.length)] + " - 3rd";
+							randomSpell = "3rd - " + third[Math.floor(Math.random() * third.length)];
 							
 							if (!spellSet.has(randomSpell)) {
 								
@@ -581,7 +585,7 @@ function generateRandList () {
 								remainderBool = false;
 							}
 							
-							randomSpell = fourth[Math.floor(Math.random() * fourth.length)] + " - 4th";
+							randomSpell = "4th - " + fourth[Math.floor(Math.random() * fourth.length)];
 							
 							if (!spellSet.has(randomSpell)) {
 								
@@ -611,7 +615,7 @@ function generateRandList () {
 								remainderBool = false;
 							}
 							
-							randomSpell = fifth[Math.floor(Math.random() * fifth.length)] + " - 5th";
+							randomSpell = "5th - " + fifth[Math.floor(Math.random() * fifth.length)];
 							
 							if (!spellSet.has(randomSpell)) {
 								
@@ -643,7 +647,7 @@ function generateRandList () {
 								remainderBool = false;
 							}
 							
-							randomSpell = sixth[Math.floor(Math.random() * sixth.length)] + " - 6th";
+							randomSpell = "6th - " + sixth[Math.floor(Math.random() * sixth.length)];
 							
 							if (!spellSet.has(randomSpell)) {
 								
@@ -673,7 +677,7 @@ function generateRandList () {
 								remainderBool = false;
 							}
 							
-							randomSpell = seventh[Math.floor(Math.random() * seventh.length)] + " - 7th";
+							randomSpell = "7th - " + seventh[Math.floor(Math.random() * seventh.length)];
 							
 							if (!spellSet.has(randomSpell)) {
 								
@@ -703,7 +707,7 @@ function generateRandList () {
 								remainderBool = false;
 							}
 							
-							randomSpell = eighth[Math.floor(Math.random() * eighth.length)] + " - 8th";
+							randomSpell = "8th - " + eighth[Math.floor(Math.random() * eighth.length)];
 							
 							if (!spellSet.has(randomSpell)) {
 								
@@ -733,7 +737,7 @@ function generateRandList () {
 								remainderBool = false;
 							}
 							
-							randomSpell = ninth[Math.floor(Math.random() * ninth.length)] + " - 9th";
+							randomSpell = "9th - " + ninth[Math.floor(Math.random() * ninth.length)];
 							
 							if (!spellSet.has(randomSpell)) {
 								
